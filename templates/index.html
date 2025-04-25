@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Colors Extractor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>🎨 Upload an image to get its top 10 colors</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if colors %}
+        <h2>Top 10 Colors:</h2>
+        <div class="colors">
+            {% for color in colors %}
+                <div class="color-box" style="background-color: {{ color.hex }};">
+                    {{ color.hex }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
